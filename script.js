@@ -2,16 +2,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const socialLinks = document.querySelectorAll('.social-link');
 
     socialLinks.forEach(link => {
+        // Open the social media links directly in a new tab when clicked
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const platform = this.getAttribute('data-platform');
             const url = this.getAttribute('href');
-            
-            if (confirm(`You're about to visit our ${platform} page. Continue?`)) {
-                window.open(url, '_blank');
-            }
+            window.open(url, '_blank');
         });
 
+        // Add hover animation to the links
         link.addEventListener('mouseover', function() {
             this.style.transform = `translateY(-5px) rotate(${Math.random() * 2 - 1}deg)`;
         });
